@@ -43,6 +43,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -117,16 +125,128 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Admin\404.html" />
+    <Content Include="Content\Admin\500.html" />
+    <Content Include="Content\Admin\advanced_form_components.html" />
+    <Content Include="Content\Admin\advanced_table.html" />
+    <Content Include="Content\Admin\basic_table.html" />
+    <Content Include="Content\Admin\blank.html" />
+    <Content Include="Content\Admin\boxed_page.html" />
+    <Content Include="Content\Admin\buttons.html" />
+    <Content Include="Content\Admin\calendar.html" />
+    <Content Include="Content\Admin\chartjs.html" />
+    <Content Include="Content\Admin\dropzone.html" />
+    <Content Include="Content\Admin\dynamic_table.html" />
+    <Content Include="Content\Admin\editable_table.html" />
+    <Content Include="Content\Admin\flot_chart.html" />
+    <Content Include="Content\Admin\font_awesome.html" />
+    <Content Include="Content\Admin\form_component.html" />
+    <Content Include="Content\Admin\form_validation.html" />
+    <Content Include="Content\Admin\form_wizard.html" />
+    <Content Include="Content\Admin\gallery.html" />
+    <Content Include="Content\Admin\general.html" />
+    <Content Include="Content\Admin\google_maps.html" />
+    <Content Include="Content\Admin\grids.html" />
+    <Content Include="Content\Admin\horizontal_menu.html" />
+    <Content Include="Content\Admin\image_cropping.html" />
+    <Content Include="Content\Admin\inbox.html" />
+    <Content Include="Content\Admin\index.html" />
+    <Content Include="Content\Admin\inline_editor.html" />
+    <Content Include="Content\Admin\invoice.html" />
+    <Content Include="Content\Admin\language_switch_bar.html" />
+    <Content Include="Content\Admin\lock_screen.html" />
+    <Content Include="Content\Admin\login.html" />
+    <Content Include="Content\Admin\morris.html" />
+    <Content Include="Content\Admin\nestable.html" />
+    <Content Include="Content\Admin\product_details.html" />
+    <Content Include="Content\Admin\product_list.html" />
+    <Content Include="Content\Admin\profile-activity.html" />
+    <Content Include="Content\Admin\profile-edit.html" />
+    <Content Include="Content\Admin\profile.html" />
+    <Content Include="Content\Admin\registration.html" />
+    <Content Include="Content\Admin\responsive_table.html" />
+    <Content Include="Content\Admin\search_result.html" />
+    <Content Include="Content\Admin\slider.html" />
+    <Content Include="Content\Admin\todo_list.html" />
+    <Content Include="Content\Admin\widget.html" />
+    <Content Include="Content\Admin\xchart.html" />
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Classes\Context.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\aspnet_Applications.cs" />
+    <Compile Include="Models\aspnet_Membership.cs" />
+    <Compile Include="Models\aspnet_Paths.cs" />
+    <Compile Include="Models\aspnet_PersonalizationAllUsers.cs" />
+    <Compile Include="Models\aspnet_PersonalizationPerUser.cs" />
+    <Compile Include="Models\aspnet_Profile.cs" />
+    <Compile Include="Models\aspnet_Roles.cs" />
+    <Compile Include="Models\aspnet_SchemaVersions.cs" />
+    <Compile Include="Models\aspnet_Users.cs" />
+    <Compile Include="Models\aspnet_WebEvent_Events.cs" />
+    <Compile Include="Models\ETicaretContext.cs" />
+    <Compile Include="Models\Kargo.cs" />
+    <Compile Include="Models\Kategori.cs" />
+    <Compile Include="Models\Mapping\aspnet_ApplicationsMap.cs" />
+    <Compile Include="Models\Mapping\aspnet_MembershipMap.cs" />
+    <Compile Include="Models\Mapping\aspnet_PathsMap.cs" />
+    <Compile Include="Models\Mapping\aspnet_PersonalizationAllUsersMap.cs" />
+    <Compile Include="Models\Mapping\aspnet_PersonalizationPerUserMap.cs" />
+    <Compile Include="Models\Mapping\aspnet_ProfileMap.cs" />
+    <Compile Include="Models\Mapping\aspnet_RolesMap.cs" />
+    <Compile Include="Models\Mapping\aspnet_SchemaVersionsMap.cs" />
+    <Compile Include="Models\Mapping\aspnet_UsersMap.cs" />
+    <Compile Include="Models\Mapping\aspnet_WebEvent_EventsMap.cs" />
+    <Compile Include="Models\Mapping\KargoMap.cs" />
+    <Compile Include="Models\Mapping\KategoriMap.cs" />
+    <Compile Include="Models\Mapping\MarkaMap.cs" />
+    <Compile Include="Models\Mapping\MusteriAdreMap.cs" />
+    <Compile Include="Models\Mapping\MusteriMap.cs" />
+    <Compile Include="Models\Mapping\OzellikDegerMap.cs" />
+    <Compile Include="Models\Mapping\OzellikTipMap.cs" />
+    <Compile Include="Models\Mapping\SatiMap.cs" />
+    <Compile Include="Models\Mapping\SatisDetayMap.cs" />
+    <Compile Include="Models\Mapping\SiparisDurumMap.cs" />
+    <Compile Include="Models\Mapping\sysdiagramMap.cs" />
+    <Compile Include="Models\Mapping\UrunMap.cs" />
+    <Compile Include="Models\Mapping\UrunOzellikMap.cs" />
+    <Compile Include="Models\Mapping\vw_aspnet_ApplicationsMap.cs" />
+    <Compile Include="Models\Mapping\vw_aspnet_MembershipUsersMap.cs" />
+    <Compile Include="Models\Mapping\vw_aspnet_ProfilesMap.cs" />
+    <Compile Include="Models\Mapping\vw_aspnet_RolesMap.cs" />
+    <Compile Include="Models\Mapping\vw_aspnet_UsersInRolesMap.cs" />
+    <Compile Include="Models\Mapping\vw_aspnet_UsersMap.cs" />
+    <Compile Include="Models\Mapping\vw_aspnet_WebPartState_PathsMap.cs" />
+    <Compile Include="Models\Mapping\vw_aspnet_WebPartState_SharedMap.cs" />
+    <Compile Include="Models\Mapping\vw_aspnet_WebPartState_UserMap.cs" />
+    <Compile Include="Models\Marka.cs" />
+    <Compile Include="Models\Musteri.cs" />
+    <Compile Include="Models\MusteriAdre.cs" />
+    <Compile Include="Models\OzellikDeger.cs" />
+    <Compile Include="Models\OzellikTip.cs" />
+    <Compile Include="Models\Sati.cs" />
+    <Compile Include="Models\SatisDetay.cs" />
+    <Compile Include="Models\SiparisDurum.cs" />
+    <Compile Include="Models\sysdiagram.cs" />
+    <Compile Include="Models\Urun.cs" />
+    <Compile Include="Models\UrunOzellik.cs" />
+    <Compile Include="Models\vw_aspnet_Applications.cs" />
+    <Compile Include="Models\vw_aspnet_MembershipUsers.cs" />
+    <Compile Include="Models\vw_aspnet_Profiles.cs" />
+    <Compile Include="Models\vw_aspnet_Roles.cs" />
+    <Compile Include="Models\vw_aspnet_Users.cs" />
+    <Compile Include="Models\vw_aspnet_UsersInRoles.cs" />
+    <Compile Include="Models\vw_aspnet_WebPartState_Paths.cs" />
+    <Compile Include="Models\vw_aspnet_WebPartState_Shared.cs" />
+    <Compile Include="Models\vw_aspnet_WebPartState_User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -135,6 +255,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Views\Shared\AdminLayout.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -144,8 +266,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
+    <Folder Include="Content\Admin\assets\" />
+    <Folder Include="Content\Admin\css\" />
+    <Folder Include="Content\Admin\fonts\" />
+    <Folder Include="Content\Admin\img\" />
+    <Folder Include="Content\Admin\js\" />
+    <Folder Include="Content\Zeon\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
