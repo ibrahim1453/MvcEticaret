@@ -7,6 +7,7 @@ namespace ZeonTicaret.WebUI.Models
     {
         public Urun()
         {
+            this.Resims = new List<Resim>();
             this.SatisDetays = new List<SatisDetay>();
             this.UrunOzelliks = new List<UrunOzellik>();
         }
@@ -22,6 +23,7 @@ namespace ZeonTicaret.WebUI.Models
         public int MarkaID { get; set; }
         public virtual Kategori Kategori { get; set; }
         public virtual Marka Marka { get; set; }
+        public virtual ICollection<Resim> Resims { get; set; }
         public virtual ICollection<SatisDetay> SatisDetays { get; set; }
         public virtual ICollection<UrunOzellik> UrunOzelliks { get; set; }
     }
