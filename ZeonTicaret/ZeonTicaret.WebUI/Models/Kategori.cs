@@ -15,6 +15,7 @@ namespace ZeonTicaret.WebUI.Models
         public string Adi { get; set; }
         public string Aciklama { get; set; }
         public int ResimID { get; set; }
+        public virtual Resim Resim { get; set; }
         public virtual ICollection<OzellikTip> OzellikTips { get; set; }
         public virtual ICollection<Urun> Uruns { get; set; }
     }
