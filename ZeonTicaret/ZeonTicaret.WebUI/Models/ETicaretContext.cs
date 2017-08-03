@@ -33,6 +33,7 @@ namespace ZeonTicaret.WebUI.Models
         public DbSet<MusteriAdre> MusteriAdres { get; set; }
         public DbSet<OzellikDeger> OzellikDegers { get; set; }
         public DbSet<OzellikTip> OzellikTips { get; set; }
+        public DbSet<Resim> Resims { get; set; }
         public DbSet<Sati> Satis { get; set; }
         public DbSet<SatisDetay> SatisDetays { get; set; }
         public DbSet<SiparisDurum> SiparisDurums { get; set; }
@@ -68,6 +69,7 @@ namespace ZeonTicaret.WebUI.Models
             modelBuilder.Configurations.Add(new MusteriAdreMap());
             modelBuilder.Configurations.Add(new OzellikDegerMap());
             modelBuilder.Configurations.Add(new OzellikTipMap());
+            modelBuilder.Configurations.Add(new ResimMap());
             modelBuilder.Configurations.Add(new SatiMap());
             modelBuilder.Configurations.Add(new SatisDetayMap());
             modelBuilder.Configurations.Add(new SiparisDurumMap());

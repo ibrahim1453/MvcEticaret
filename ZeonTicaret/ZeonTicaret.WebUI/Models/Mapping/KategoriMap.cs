@@ -1,4 +1,4 @@
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
 namespace ZeonTicaret.WebUI.Models.Mapping
@@ -24,6 +24,12 @@ namespace ZeonTicaret.WebUI.Models.Mapping
             this.Property(t => t.Adi).HasColumnName("Adi");
             this.Property(t => t.Aciklama).HasColumnName("Aciklama");
             this.Property(t => t.ResimID).HasColumnName("ResimID");
+
+            // Relationships
+            this.HasRequired(t => t.Resim)
+                .WithMany(t => t.Kategoris)
+                .HasForeignKey(d => d.ResimID);
+
         }
     }
 }
