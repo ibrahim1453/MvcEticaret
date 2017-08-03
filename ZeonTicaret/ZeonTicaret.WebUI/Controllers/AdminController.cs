@@ -39,7 +39,8 @@ namespace ZeonTicaret.WebUI.Controllers
         [HttpPost]
         public ActionResult MarkaEkle(Marka mrk, HttpPostedFileBase fileUpload)
         {
-            if(fileUpload!=null)
+            int resimId = -1;
+            if (fileUpload!=null)
             {
                 Image img = Image.FromStream(fileUpload.InputStream);
                 int width = Convert.ToInt32( ConfigurationManager.AppSettings["MarkaWidth"].ToString());
@@ -48,8 +49,18 @@ namespace ZeonTicaret.WebUI.Controllers
                 string name = "/Content/MarkaResim/" + Guid.NewGuid() + Path.GetExtension(fileUpload.FileName); 
                 Bitmap bm = new Bitmap(img, width, height);
                 bm.Save(Server.MapPath(name));
-                Context.Baglanti.Resim
+                Resim rsm = new Resim();
+                rsm.OrtaYol = name;
+                Context.Baglanti.Resims.Add(rsm);
+                Context.Baglanti.SaveChanges();
+                if (rsm.Id != null)
+                    resimId = rsm.Id;
             }
+            if(resimId!= -1)
+            mrk.ResimID = resimId;
+            Context.Baglanti.Markas.Add(mrk);
+            Context.Baglanti.SaveChanges();
+            return RedirectToAction("Markalar");
         }
     }
 }
