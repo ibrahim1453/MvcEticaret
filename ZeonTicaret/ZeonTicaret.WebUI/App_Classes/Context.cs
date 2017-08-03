@@ -10,7 +10,7 @@ namespace ZeonTicaret.WebUI.App_Classes
     {
         private static ETicaretContext baglanti;
 
-        public ETicaretContext Baglanti
+        public static ETicaretContext Baglanti
         {
             get {
                 if (baglanti == null)
