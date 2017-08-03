@@ -8,7 +8,6 @@ using System.Web;
 using System.Web.Mvc;
 using ZeonTicaret.WebUI.App_Classes;
 using ZeonTicaret.WebUI.Models;
-
 namespace ZeonTicaret.WebUI.Controllers
 {
     public class AdminController : Controller
@@ -40,7 +39,7 @@ namespace ZeonTicaret.WebUI.Controllers
         public ActionResult MarkaEkle(Marka mrk, HttpPostedFileBase fileUpload)
         {
             int resimId = -1;
-            if (fileUpload!=null)
+            if (fileUpload != null)
             {
                 Image img = Image.FromStream(fileUpload.InputStream);
                 int width = Convert.ToInt32( ConfigurationManager.AppSettings["MarkaWidth"].ToString());
@@ -51,7 +50,7 @@ namespace ZeonTicaret.WebUI.Controllers
                 bm.Save(Server.MapPath(name));
                 Resim rsm = new Resim();
                 rsm.OrtaYol = name;
-                Context.Baglanti.Resims.Add(rsm);
+                    Context.Baglanti.Resims.Add(rsm);
                 Context.Baglanti.SaveChanges();
                 if (rsm.Id != null)
                     resimId = rsm.Id;
