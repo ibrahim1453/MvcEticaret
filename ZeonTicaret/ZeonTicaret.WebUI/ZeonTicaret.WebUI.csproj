@@ -259,6 +259,10 @@
     </Content>
     <Content Include="Views\Shared\AdminLayout.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Urunler.cshtml" />
+    <Content Include="Views\Admin\UrunEkle.cshtml" />
+    <Content Include="Views\Admin\Markalar.cshtml" />
+    <Content Include="Views\Admin\MarkaEkle.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -273,6 +277,7 @@
     <Folder Include="Content\Admin\fonts\" />
     <Folder Include="Content\Admin\img\" />
     <Folder Include="Content\Admin\js\" />
+    <Folder Include="Content\MarkaResim\" />
     <Folder Include="Content\Zeon\" />
   </ItemGroup>
   <PropertyGroup>
