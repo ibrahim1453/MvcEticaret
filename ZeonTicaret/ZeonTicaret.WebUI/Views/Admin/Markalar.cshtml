@@ -3,6 +3,10 @@
     ViewBag.Title = "Markalar";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
+@section head
+    {
+<link href="/Content/Admin/assets/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
+    }
 @model IEnumerable<ZeonTicaret.WebUI.Models.Marka>
 <section class="panel">
     <header class="panel-heading">
@@ -38,9 +42,13 @@
                             <td>@marka.Adi</td>
                             <td>@marka.Aciklama</td>
                             <td>
-                                <a class="delete" href="#">
-                                    <i class="icon-add"> </i>
-                                </a>
+                                @if (marka.Resim != null)
+                                {
+                                    <a class="fancybox" rel="group" href="@marka.Resim.OrtaYol">
+                                        <i class="icon-eye-open"> </i>
+                                    </a>
+                                }
+                               
                             </td>
                             <td>
                                 <a class="edit" href="/Admin/MarkaGuncelle/@marka.Id">
@@ -62,4 +70,13 @@
         </div>
     </div>
 </section>
+
+<script src="/Content/Admin/assets/fancybox/source/jquery.fancybox.js"></script>
+<script type="text/javascript">
+      $(function() {
+        //    fancybox
+          jQuery(".fancybox").fancybox();
+      });
+
+</script>
 
