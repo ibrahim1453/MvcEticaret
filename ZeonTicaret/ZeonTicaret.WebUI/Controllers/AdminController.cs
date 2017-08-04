@@ -38,7 +38,8 @@ namespace ZeonTicaret.WebUI.Controllers
         [HttpPost]
         public ActionResult MarkaEkle(Marka mrk, HttpPostedFileBase fileUpload)
         {
-            int resimId = -1;
+            int resimId = -1;// bu da mı sıfır burada niye resim id ye -1 atıyorsun? abi eğer fileupload null gelirse oldu mu çalıştırayım mı bir dakika bir şeye bakıyorum
+            //eski haline getirip bir çalıştır
             if (fileUpload != null)
             {
                 Image img = Image.FromStream(fileUpload.InputStream);
@@ -50,15 +51,24 @@ namespace ZeonTicaret.WebUI.Controllers
                 bm.Save(Server.MapPath(name));
                 Resim rsm = new Resim();
                 rsm.OrtaYol = name;
-                    Context.Baglanti.Resims.Add(rsm);
+                Context.Baglanti.Resims.Add(rsm);
                 Context.Baglanti.SaveChanges();
                 if (rsm.Id != null)
                     resimId = rsm.Id;
             }
-            if(resimId!= -1)
-            mrk.ResimID = resimId;
-            Context.Baglanti.Markas.Add(mrk);
-            Context.Baglanti.SaveChanges();
+            if (resimId != -1)
+            {
+                mrk.ResimID = resimId;
+                Context.Baglanti.Markas.Add(mrk);
+                Context.Baglanti.SaveChanges();
+            }
+            else
+            {
+                mrk.ResimID = 5;
+                Context.Baglanti.Markas.Add(mrk);
+                Context.Baglanti.SaveChanges();
+            }
+            
             return RedirectToAction("Markalar");
         }
     }

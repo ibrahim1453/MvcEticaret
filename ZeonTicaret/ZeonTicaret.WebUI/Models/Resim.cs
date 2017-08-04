@@ -15,7 +15,7 @@ namespace ZeonTicaret.WebUI.Models
         public string BuyukYol { get; set; }
         public string OrtaYol { get; set; }
         public string KucukYol { get; set; }
-        public Nullable<bool> Varsayılan { get; set; }
+        public Nullable<bool> Varsayilan { get; set; }
         public Nullable<byte> SiraNo { get; set; }
         public Nullable<int> UrunID { get; set; }
         public virtual ICollection<Kategori> Kategoris { get; set; }

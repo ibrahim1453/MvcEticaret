@@ -26,7 +26,7 @@ namespace ZeonTicaret.WebUI.Models.Mapping
             this.Property(t => t.BuyukYol).HasColumnName("BuyukYol");
             this.Property(t => t.OrtaYol).HasColumnName("OrtaYol");
             this.Property(t => t.KucukYol).HasColumnName("KucukYol");
-            this.Property(t => t.Varsayılan).HasColumnName("Varsayılan");
+            this.Property(t => t.Varsayilan).HasColumnName("Varsayilan");
             this.Property(t => t.SiraNo).HasColumnName("SiraNo");
             this.Property(t => t.UrunID).HasColumnName("UrunID");
 
