@@ -23,12 +23,12 @@ namespace ZeonTicaret.WebUI.Models.Mapping
             this.Property(t => t.Id).HasColumnName("Id");
             this.Property(t => t.Adi).HasColumnName("Adi");
             this.Property(t => t.Aciklama).HasColumnName("Aciklama");
-            this.Property(t => t.KaregoriID).HasColumnName("KaregoriID");
+            this.Property(t => t.KategoriID).HasColumnName("KategoriID");
 
             // Relationships
             this.HasRequired(t => t.Kategori)
                 .WithMany(t => t.OzellikTips)
-                .HasForeignKey(d => d.KaregoriID);
+                .HasForeignKey(d => d.KategoriID);
 
         }
     }

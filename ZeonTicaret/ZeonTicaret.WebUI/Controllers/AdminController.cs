@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using ZeonTicaret.WebUI.App_Classes;
@@ -26,6 +27,14 @@ namespace ZeonTicaret.WebUI.Controllers
             ViewBag.Kategoriler = Context.Baglanti.Kategoris.ToList();
             ViewBag.Markalar = Context.Baglanti.Markas.ToList();
             return View();
+        }
+        [HttpPost]
+        public ActionResult UrunEkle(Urun urn)
+        {
+            urn.EklenmeTarihi = DateTime.Now;
+            Context.Baglanti.Uruns.Add(urn);
+            Context.Baglanti.SaveChanges();
+            return RedirectToAction("Urunler");
         }
         public ActionResult Markalar()
         {
@@ -71,5 +80,95 @@ namespace ZeonTicaret.WebUI.Controllers
             
             return RedirectToAction("Markalar");
         }
+
+        public ActionResult Kategoriler()
+        {
+            return View(Context.Baglanti.Kategoris.ToList());
+        }
+
+        public ActionResult KategoriEkle()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult KategoriEkle(Kategori ktg)
+        {
+            Context.Baglanti.Kategoris.Add(ktg);
+            Context.Baglanti.SaveChanges();
+            return RedirectToAction("Kategoriler");
+        }
+        public ActionResult OzellikTipleri()
+        {
+            return View(Context.Baglanti.OzellikTips.ToList());
+        }
+        public ActionResult OzellikTipEkle()
+        {
+            return View(Context.Baglanti.Kategoris.ToList());
+        }
+        [HttpPost]
+        public ActionResult OzellikTipEkle(OzellikTip ot)
+        {
+            Context.Baglanti.OzellikTips.Add(ot);
+            Context.Baglanti.SaveChanges();
+            return RedirectToAction("OzellikTipleri");
+        }
+        public ActionResult OzellikDegerleri()
+        {
+            return View(Context.Baglanti.OzellikDegers.ToList());
+        }
+        public ActionResult OzellikDegerEkle()
+        {
+            return View(Context.Baglanti.OzellikTips.ToList());
+        }
+        [HttpPost]
+        public ActionResult OzellikDegerEkle(OzellikDeger od)
+        {
+            Context.Baglanti.OzellikDegers.Add(od);
+            Context.Baglanti.SaveChanges();
+            return RedirectToAction("OzellikDegerleri");
+        }
+        public ActionResult UrunOzellikleri()
+        {
+            return View(Context.Baglanti.UrunOzelliks.ToList());
+        }
+        public ActionResult UrunOzellikSil(int urunId, int tipId, int degerId)
+        {
+            UrunOzellik uo = Context.Baglanti.UrunOzelliks.FirstOrDefault(x => x.UrunID == urunId && x.OzellikTipID == tipId && x.OzellikDegerID == degerId);
+            Context.Baglanti.UrunOzelliks.Remove(uo);
+            Context.Baglanti.SaveChanges();
+            return RedirectToAction("UrunOzellikleri");
+
+        }
+        public ActionResult UrunOzellikEkle()
+        {
+            return View(Context.Baglanti.Uruns.ToList());
+        }
+        public PartialViewResult UrunOzellikTipWidget(int? katId)
+        {
+            if(katId!=null)
+            {
+                var data = Context.Baglanti.OzellikTips.Where(x => x.KategoriID == katId).ToList();
+                return PartialView(data);
+            }
+            else
+            {
+                var data = Context.Baglanti.OzellikTips.ToList();
+                return PartialView(data);
+            }
+        }
+        public PartialViewResult UrunOzellikDegerWidget(int? tipId)
+        {
+            if (tipId!=null)
+            {
+                var data = Context.Baglanti.OzellikDegers.Where(x => x.OzellikTipID == tipId).ToList();
+                return PartialView(data);
+            }
+            else
+            {
+                var data = Context.Baglanti.OzellikDegers.ToList();
+                return PartialView(data);
+            }
+        }
+        
     }
 }

@@ -265,6 +265,16 @@
     <Content Include="Views\Admin\UrunEkle.cshtml" />
     <Content Include="Views\Admin\Markalar.cshtml" />
     <Content Include="Views\Admin\MarkaEkle.cshtml" />
+    <Content Include="Views\Admin\Kategoriler.cshtml" />
+    <Content Include="Views\Admin\KategoriEkle.cshtml" />
+    <Content Include="Views\Admin\OzellikTipleri.cshtml" />
+    <Content Include="Views\Admin\OzellikTipEkle.cshtml" />
+    <Content Include="Views\Admin\OzellikDegerleri.cshtml" />
+    <Content Include="Views\Admin\OzellikDegerEkle.cshtml" />
+    <Content Include="Views\Admin\UrunOzellikleri.cshtml" />
+    <Content Include="Views\Admin\UrunOzellikTipWidget.cshtml" />
+    <Content Include="Views\Admin\UrunOzellikDegerWidget.cshtml" />
+    <Content Include="Views\Admin\UrunOzellikEkle.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
