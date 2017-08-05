@@ -17,7 +17,7 @@ namespace ZeonTicaret.WebUI.Models
         public string Aciklama { get; set; }
         public decimal AlisFiyat { get; set; }
         public decimal SatisFiyat { get; set; }
-        public System.DateTime EklenmeTarihi { get; set; }
+        public Nullable<System.DateTime> EklenmeTarihi { get; set; }
         public Nullable<System.DateTime> SonKullanmaTarihi { get; set; }
         public int KategoriID { get; set; }
         public int MarkaID { get; set; }

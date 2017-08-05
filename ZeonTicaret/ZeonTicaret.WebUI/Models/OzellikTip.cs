@@ -14,7 +14,7 @@ namespace ZeonTicaret.WebUI.Models
         public int Id { get; set; }
         public string Adi { get; set; }
         public string Aciklama { get; set; }
-        public int KaregoriID { get; set; }
+        public int KategoriID { get; set; }
         public virtual Kategori Kategori { get; set; }
         public virtual ICollection<OzellikDeger> OzellikDegers { get; set; }
         public virtual ICollection<UrunOzellik> UrunOzelliks { get; set; }

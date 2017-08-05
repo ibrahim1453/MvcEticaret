@@ -1,0 +1,14 @@
+﻿@model IEnumerable<ZeonTicaret.WebUI.Models.OzellikTip>
+
+<div class="form-group has-success">
+    <label class="col-lg-2 control-label">Özellik Tipi</label>
+    <div class="col-lg-10">
+        <select class="form-control m-bot15" name="Id">
+            @foreach (var tip in Model)
+            {
+                <option value="@tip.Id">@tip.Adi</option>
+            }
+        </select>
+    </div>
+</div>
+
